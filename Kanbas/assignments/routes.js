@@ -9,6 +9,7 @@ function AssignmentRoutes(app) {
     });
 
     // create
+    // return the new assignment (courseId already overriden in the newAssignment object)
     app.post("/api/courses/:cid/assignments", (req, res) => {
         const { cid } = req.params;
         const newAssignment = {
@@ -23,7 +24,7 @@ function AssignmentRoutes(app) {
     // update
     app.put("/api/assignments/:aid", (req, res) => {
         const { aid } = req.params;
-        const assignmentIndex = db.modules.findIndex(
+        const assignmentIndex = db.assignments.findIndex(
           (a) => a._id === aid);
         db.assignments[assignmentIndex] = {
           ...db.assignments[assignmentIndex],
