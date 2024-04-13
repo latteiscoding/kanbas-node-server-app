@@ -12,7 +12,7 @@ function QuizRoutes(app) {
         const newQuiz = {
             ...req.body,
             course: cid,
-            _id: new Date().getTime().toString(),
+            quizId: new Date().getTime().toString(),
         };
         db.quizzes.push(newQuiz);
         res.send(newQuiz);
@@ -20,10 +20,10 @@ function QuizRoutes(app) {
     //update
     app.put("/api/quizzes/:qid", (req, res) => {
         const { qid } = req.params;
-        const quizzIndex = db.quizzes.findIndex(
-          (q) => q._id === qid);
-        db.quizzes[quizzIndex] = {
-          ...db.quizzes[quizzIndex],
+        const quizIndex = db.quizzes.findIndex(
+          (q) => q.quizId === qid);
+        db.quizzes[quizIndex] = {
+          ...db.quizzes[quizIndex],
           ...req.body // req.body is the updated quiz object
         };
         res.sendStatus(204);

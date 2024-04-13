@@ -5,9 +5,9 @@ function AssignmentRoutes(app) {
         const { cid } = req.params;
         const assignments = db.assignments
             .filter((a) => a.course === cid);
+            console.log("get assignments for teh course", cid, ":", assignments);
         res.send(assignments);
     });
-
     // create
     // return the new assignment (courseId already overriden in the newAssignment object)
     app.post("/api/courses/:cid/assignments", (req, res) => {
@@ -20,7 +20,6 @@ function AssignmentRoutes(app) {
         db.assignments.push(newAssignment);
         res.send(newAssignment);
     });
-
     // update
     app.put("/api/assignments/:aid", (req, res) => {
         const { aid } = req.params;
@@ -32,7 +31,6 @@ function AssignmentRoutes(app) {
         };
         res.sendStatus(204);
       });
-
     // delete
     app.delete("/api/assignments/:aid", (req, res) => {
         const { aid } = req.params;

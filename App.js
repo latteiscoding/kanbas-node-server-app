@@ -1,5 +1,8 @@
 import express from 'express'; // Import express
 import Lab5 from './Lab5.js'; // Import Lab5.js  
+import mongoose from "mongoose";
+import UserRoutes from "./Users/routes.js";
+mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
 import AssignmentRoutes from './Kanbas/assignments/routes.js';
@@ -9,6 +12,7 @@ import cors from 'cors'; // Import cors : to configure CORS security policy
 const app = express() // Create an express instance and store it in app
 app.use(cors()); 
 app.use(express.json()); // tells your server to automatically parse JSON-formatted request bodies and convert them into JavaScript objects 
+UserRoutes(app);
 Hello(app) // Call the Hello function and pass app as an argument  
 ModuleRoutes(app);
 CourseRoutes(app); 
