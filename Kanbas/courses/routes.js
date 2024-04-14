@@ -28,7 +28,7 @@ export default function CourseRoutes(app) {
   });
 
 
-
+// get all courses
   app.get("/api/courses", (req, res) => {
     const courses = Database.courses;
     res.send(courses);
