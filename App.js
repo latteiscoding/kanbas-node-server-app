@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from 'express'; // Import express
 import session from "express-session";
+import MongoStore from 'connect-mongo';
 import Lab5 from './Lab5.js'; // Import Lab5.js  
 import mongoose from "mongoose";
 import UserRoutes from "./Users/routes.js";
@@ -30,6 +31,9 @@ if (process.env.NODE_ENV !== "development") {
         secure: true,
         domain: process.env.HTTP_SERVER_DOMAIN,
     };
+    sessionOptions.store = new MongoStore({
+        mongooseConnection: mongoose.connection,
+    });
 }
 app.use(
 session(sessionOptions)
