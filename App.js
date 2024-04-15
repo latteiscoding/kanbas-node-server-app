@@ -31,9 +31,9 @@ if (process.env.NODE_ENV !== "development") {
         secure: true,
         domain: process.env.HTTP_SERVER_DOMAIN,
     };
-    sessionOptions.store = new MongoStore({
-        mongooseConnection: mongoose.connection,
-    });
+    //sessionOptions.store = new MongoStore({
+    //    mongooseConnection: mongoose.connection,
+    //});
 }
 app.use(
 session(sessionOptions)
