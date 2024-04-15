@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node App.js",
+    "start": "nodemon App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,5 +33,8 @@
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "mongodb": "4.1"
+  },
+  "engines": {
+    "node": "21.7.3" 
   }
 }
