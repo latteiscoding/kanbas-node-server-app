@@ -42,7 +42,7 @@ app.use(express.json()); // tells your server to automatically parse JSON-format
 app.use(
     cors({
         credentials: true, // support cookies
-        origin: process.env.FRONTEND_URL, // use different front end URL in production and development
+        origin: process.env.FRONTEND_URL,  // use different front end URL in production and development
     })
 ); 
 UserRoutes(app);
