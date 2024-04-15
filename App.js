@@ -1,15 +1,16 @@
+import "dotenv/config";
 import express from 'express'; // Import express
 import session from "express-session";
 import Lab5 from './Lab5.js'; // Import Lab5.js  
 import mongoose from "mongoose";
 import UserRoutes from "./Users/routes.js";
-import "dotenv/config";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
 import AssignmentRoutes from './Kanbas/assignments/routes.js';
 import QuizRoutes from './Kanbas/quizzes/routes.js';
 import Hello from './Hello.js'; // Import Hello.js
 import cors from 'cors'; // Import cors : to configure CORS security policy
+console.log("Session Secret:", process.env.SESSION_SECRET);
 const app = express() // Create an express instance and store it in app
 app.use(
     cors({
