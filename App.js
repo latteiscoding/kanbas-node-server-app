@@ -12,12 +12,7 @@ import Hello from './Hello.js'; // Import Hello.js
 import cors from 'cors'; // Import cors : to configure CORS security policy
 console.log("Session Secret:", process.env.SESSION_SECRET);
 const app = express() // Create an express instance and store it in app
-app.use(
-    cors({
-        credentials: true, // support cookies
-        origin: process.env.FRONTEND_URL, // use different front end URL in production and development
-    })
-); 
+
 // but it's a bad practice to have credentials in the source code
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas';
 mongoose.connect(CONNECTION_STRING);
@@ -40,6 +35,12 @@ app.use(
 session(sessionOptions)
 );
 app.use(express.json()); // tells your server to automatically parse JSON-formatted request bodies and convert them into JavaScript objects 
+app.use(
+    cors({
+        credentials: true, // support cookies
+        origin: process.env.FRONTEND_URL, // use different front end URL in production and development
+    })
+); 
 UserRoutes(app);
 Hello(app) // Call the Hello function and pass app as an argument  
 ModuleRoutes(app);
