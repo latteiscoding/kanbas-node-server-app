@@ -37,10 +37,10 @@ export default function QuestionRoutes(app) {
 
 
 app.get("/api/quizzes/:qid/questions", getQuestionsByQuiz);
-app.get("/api/quizzes/:qid/questions/:quizId", getQuestionById);
+app.get("/api/questions/:questionId", getQuestionById);
 app.post("/api/quizzes/:qid/questions", createQuestion);
-app.put("/api/questions/:id", updateQuestion);
-app.delete("/api/questions/:id", deleteQuestion);
+app.put("/api/questions/:questionId", updateQuestion);
+app.delete("/api/questions/:questionId", deleteQuestion);
 
 
 
