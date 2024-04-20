@@ -9,6 +9,7 @@ import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
 import AssignmentRoutes from './Kanbas/assignments/routes.js';
 import QuizRoutes from './Kanbas/quizzes/routes.js';
+import QuestionRoutes from "./Kanbas/questions/routes.js";
 import Hello from './Hello.js'; // Import Hello.js
 import cors from 'cors'; // Import cors : to configure CORS security policy
 console.log("Session Secret:", process.env.SESSION_SECRET);
@@ -51,6 +52,7 @@ ModuleRoutes(app);
 CourseRoutes(app); 
 AssignmentRoutes(app);
 QuizRoutes(app);
+QuestionRoutes(app);
 Lab5(app) // Call the Lab5 function and pass app as an argument
 app.listen(process.env.PORT || 4000) // uses the PORT environment variable if available, or uses 4000 otherwise when running locally on our machines.
 
