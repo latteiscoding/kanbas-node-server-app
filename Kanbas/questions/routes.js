@@ -24,13 +24,13 @@ export default function QuestionRoutes(app) {
     }
 
     const updateQuestion = async (req, res) => {
-        const questionId = req.params.id;
+        const questionId = req.params;
         const status = await dao.updateQuestion(questionId, req.body);
         res.json(status);
     }
 
     const deleteQuestion = async (req, res) => {
-        const questionId = req.params.id;
+        const questionId = req.params;
         const status = await dao.deleteQuestion(questionId);
         res.json(status);
     }
